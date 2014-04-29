@@ -34,3 +34,5 @@ dependencies {
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
 }
+
+task stage(dependsOn: ['clean', 'build'])
