@@ -28,11 +28,11 @@ repositories {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.2.2'
+    groovy 'org.codehaus.groovy:groovy-all:2.2.2'
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile group: 'junit', name: 'junit', version: '4.11'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
 }
 
-task stage(dependsOn: ['clean', 'build'])
+task stage(dependsOn: ['bootRepackage'])
