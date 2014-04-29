@@ -6,7 +6,6 @@ import org.springframework.boot.test.SpringApplicationConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.context.web.WebAppConfiguration
 import org.springframework.web.client.RestTemplate
-import spock.lang.Specification
 
 /**
  *
@@ -18,18 +17,12 @@ import spock.lang.Specification
 @IntegrationTest
 @WebAppConfiguration
 @SpringApplicationConfiguration(classes = App.class)
-class AppTest extends Specification {
+class AppIntegrationTests {
 
     @Test
-    def "test home"() {
-        given:
-        def template = new RestTemplate()
-
-        when:
-        def body = template.getForObject("http://localhost:8080/", String.class);
-
-        then:
-        body == "Hello World!"
+    def void should_access_home() {
+        def body = new RestTemplate().getForObject("http://localhost:8080/", String.class);
+        assert body == "Hello World!"
     }
 
 }
