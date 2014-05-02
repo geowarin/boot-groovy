@@ -1,8 +1,5 @@
 server.port: ${port:8080}
 
-management.context-path: /management
-# management.security.role=ADMIN
-
-security.user:
-    name: admin
-    password: ${password:secret}
+management:
+    context-path: /management
+    security.role: ADMIN
