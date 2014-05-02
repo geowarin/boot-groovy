@@ -1,5 +1,10 @@
 server.port: ${port:8080}
 
+security.basic.enabled: false
+debug: true
+shell.auth: spring
+
 management:
-    context-path: /management
-    security.role: ADMIN
+  context-path: /management
+#  security.enabled: false
+#    security.role: ADMIN

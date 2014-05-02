@@ -42,7 +42,10 @@ class AppIntegrationTests {
 
     @Test
     def void should_secure_sensible_resources() {
-        def httpResponse = Request.Get("$serverAddress/management/beans").execute().returnResponse()
+        def httpResponse = Request.Get("$serverAddress/management/info").execute().returnResponse()
+        assert httpResponse.statusLine.statusCode == 200
+
+        httpResponse = Request.Get("$serverAddress/management/beans").execute().returnResponse()
         assert httpResponse.statusLine.statusCode == 401
 
         assert password == 'test'

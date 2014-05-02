@@ -1,9 +1,14 @@
 package com.geowarin
 
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.core.Ordered
+import org.springframework.core.annotation.Order
+import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity
 import org.springframework.security.config.http.SessionCreationPolicy
@@ -15,7 +20,6 @@ import org.springframework.security.config.http.SessionCreationPolicy
  * @author Geoffroy Warin (http://geowarin.github.io)
  */
 @Configuration
-@EnableWebMvcSecurity
 class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
@@ -36,5 +40,11 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth
                 .inMemoryAuthentication()
                 .withUser('admin').password(password).roles('ADMIN');
+    }
+
+    @Bean
+    @Override
+    AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean()
     }
 }
