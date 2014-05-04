@@ -1,6 +1,6 @@
 server.port: ${port:8080}
 
-#debug: true
+debug: true
 
 security.basic.enabled: false
 
@@ -19,6 +19,7 @@ spring:
 
 spring.data.mongodb:
   host: localhost
+  database: boot-groovy
   port: 27017
 
 ---
@@ -27,5 +28,4 @@ spring:
   profiles: heroku
 
 spring.data.mongodb:
-  host: mongoserver
-  port: 27017
+  uri: ${MONGOHQ_URL}

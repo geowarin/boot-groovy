@@ -12,6 +12,7 @@ Features :
 ## Deploy it
 
     heroku create myapp --buildpack https://github.com/heroku/heroku-buildpack-gradle
+    heroku addons:add mongohq
 
 To change the default password for the admin user, configure an environment variable called `adminPassword` in heroku
 
