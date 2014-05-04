@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @EnableAutoConfiguration
-@ComponentScan("com.geowarin")
+@ComponentScan('com.geowarin')
 @EnableWebSecurity
 class App {
 
