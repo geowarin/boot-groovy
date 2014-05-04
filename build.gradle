@@ -21,14 +21,16 @@ repositories {
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.2.2'
-    compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile("org.springframework.boot:spring-boot-starter-security")
-    compile("org.springframework.data:spring-data-mongodb")
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.boot:spring-boot-starter-security'
+    compile 'org.springframework.data:spring-data-mongodb'
+    compile 'com.knappsack:swagger4spring-web:0.3.3'
+    compile 'org.webjars:swagger-ui:2.0.14-1'
 //    Shell does not work on heroku
 //    compile("org.springframework.boot:spring-boot-starter-remote-shell")
-    compile("com.fasterxml.jackson.core:jackson-databind")
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile 'com.fasterxml.jackson.core:jackson-databind'
+    testCompile 'junit:junit:4.11'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
     testCompile 'org.apache.httpcomponents:fluent-hc:4.2.6'

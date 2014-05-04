@@ -1,7 +1,5 @@
 server.port: ${port:8080}
 
-debug: true
-
 security.basic.enabled: false
 
 #shell.auth: spring
@@ -12,10 +10,15 @@ management:
   context-path: /management
 #    security.role: ADMIN
 
+#spring.view.prefix: /WEB-INF/pages/
+#spring.view.suffix: .html
+
 ---
 
 spring:
   profiles: dev
+
+debug: true
 
 spring.data.mongodb:
   host: localhost
