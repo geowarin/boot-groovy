@@ -18,6 +18,9 @@ class App {
     }
 
     static boolean isHeroku() {
-        System.getProperty('DYNO')
+        def dyno = System.getProperty('DYNO')
+        boolean isDyno = dyno
+        println "Dyno = $dyno , isDyno ? $isDyno"
+        dyno
     }
 }
