@@ -11,3 +11,21 @@ security.basic.enabled: false
 management:
   context-path: /management
 #    security.role: ADMIN
+
+---
+
+spring:
+  profiles: dev
+
+spring.data.mongodb:
+  host: localhost
+  port: 27017
+
+---
+
+spring:
+  profiles: heroku
+
+spring.data.mongodb:
+  host: mongoserver
+  port: 27017
