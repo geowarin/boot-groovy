@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate
  * @author Geoffroy Warin (http://geowarin.github.io)
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@IntegrationTest(["port=0", "adminPassword=test"])
+@IntegrationTest(['port=0', 'adminPassword=test'])
 @WebAppConfiguration
 @SpringApplicationConfiguration(classes = App.class)
 class AppIntegrationTests {
@@ -51,7 +51,6 @@ class AppIntegrationTests {
         def httpResponse = Request.Get("$serverAddress/management/beans").execute().returnResponse()
         assert httpResponse.statusLine.statusCode == 401
 
-        assert password == 'test'
         httpResponse = getWithBasicAuth("$serverAddress/management/beans", 'admin', password)
         assert httpResponse.statusLine.statusCode == 200
     }
