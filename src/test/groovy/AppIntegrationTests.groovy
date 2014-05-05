@@ -37,19 +37,32 @@ class AppIntegrationTests {
     @Test
     def void should_access_home() {
         def body = new RestTemplate().getForObject(serverAddress, String.class);
-        assert body == 'Hello World!'
+        assert body == 'Hello [] World!'
+    }
+
+    @Test
+    def void should_access_non_sensible_resources() {
+        def httpResponse = Request.Get("$serverAddress/management/info").execute().returnResponse()
+        assert httpResponse.statusLine.statusCode == 200
     }
 
     @Test
     def void should_secure_sensible_resources() {
-        def httpResponse = Request.Get("$serverAddress/management/info").execute().returnResponse()
-        assert httpResponse.statusLine.statusCode == 200
-
-        httpResponse = Request.Get("$serverAddress/management/beans").execute().returnResponse()
+        def httpResponse = Request.Get("$serverAddress/management/beans").execute().returnResponse()
         assert httpResponse.statusLine.statusCode == 401
 
         assert password == 'test'
         httpResponse = getWithBasicAuth("$serverAddress/management/beans", 'admin', password)
+        assert httpResponse.statusLine.statusCode == 200
+    }
+
+    @Test
+    def void should_secure_api_doc() {
+        def httpResponse = Request.Get("$serverAddress/documentation").execute().returnResponse()
+        assert httpResponse.statusLine.statusCode == 401
+
+        assert password == 'test'
+        httpResponse = getWithBasicAuth("$serverAddress/documentation", 'admin', password)
         assert httpResponse.statusLine.statusCode == 200
     }
 

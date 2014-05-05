@@ -18,20 +18,18 @@ import org.springframework.web.bind.annotation.RequestMapping
 @Configuration
 @Controller
 @RequestMapping(value = "/documentation")
-class SwaggerConfig  extends ApiDocumentationController {
+class SwaggerConfig extends ApiDocumentationController {
 
     @Bean
     MappingJackson2HttpMessageConverter jacksonConverter() {
-        def converter = new MappingJackson2HttpMessageConverter()
-        converter.setObjectMapper(new ScalaObjectMapper())
-        converter
+        new MappingJackson2HttpMessageConverter(objectMapper: new ScalaObjectMapper())
     }
 
     SwaggerConfig() {
-        setBaseControllerPackage("com.geowarin");
-        setBaseModelPackage("com.geowarin");
-        setApiVersion("v1");
-        setApiInfo(new ApiInfo("Boot Groovy App", "Boot groovy app on heroku", null, null, null, null));
+        baseControllerPackage = 'com.geowarin'
+        baseModelPackage = 'com.geowarin'
+        apiVersion = 'v1'
+        apiInfo = new ApiInfo('Boot Groovy App', 'Boot groovy app on heroku', null, null, null, null)
     }
 
     @RequestMapping
