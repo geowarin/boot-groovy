@@ -1,12 +1,21 @@
 # Spring boot groovy
 
-This demo application is designed to run on heroku.
+This is a rest API demo application is designed to run on heroku.
 
 Features :
 
-1. Groovy + Gralde build
+1. Groovy + Gradle build
 2. Fully tested (integration + spock unit tests)
 3. Mongodb
+4. Rest API documentation with swagger
+
+## Debug (and hot reload) it
+
+Download the [spring-loaded](https://github.com/spring-projects/spring-loaded) jar and add
+
+    -javaagent:/path/to/spring-loaded.jar -noverify
+
+As a JVM arg to your debug configuration and enjoy :)
 
 
 ## Deploy it

@@ -31,9 +31,4 @@ class SwaggerConfig extends ApiDocumentationController {
         apiVersion = 'v1'
         apiInfo = new ApiInfo('Boot Groovy App', 'Boot groovy app on heroku', null, null, null, null)
     }
-
-    @RequestMapping
-    String doc() {
-        "/doc.html"
-    }
 }

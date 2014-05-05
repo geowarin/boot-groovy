@@ -58,12 +58,11 @@ class AppIntegrationTests {
 
     @Test
     def void should_secure_api_doc() {
-        def httpResponse = Request.Get("$serverAddress/documentation").execute().returnResponse()
+        def httpResponse = Request.Get("$serverAddress/documentation.html").execute().returnResponse()
         assert httpResponse.statusLine.statusCode == 401
 
-        assert password == 'test'
-        httpResponse = getWithBasicAuth("$serverAddress/documentation", 'admin', password)
-        assert httpResponse.statusLine.statusCode == 200
+        httpResponse = Request.Get("$serverAddress/documentation/resourceList").execute().returnResponse()
+        assert httpResponse.statusLine.statusCode == 401
     }
 
     private static HttpResponse getWithBasicAuth(GString url, String userName, String password) {
