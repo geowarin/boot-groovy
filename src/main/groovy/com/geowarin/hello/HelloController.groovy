@@ -20,7 +20,7 @@ class HelloController {
     @Autowired
     private Environment env
 
-    @RequestMapping("/")
+    @RequestMapping('/')
     String home() {
         "Hello $env.activeProfiles World!"
     }
