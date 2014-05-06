@@ -10,5 +10,4 @@ import org.springframework.stereotype.Repository
  * @author Geoffroy Warin (http://geowarin.github.io)
  */
 @Repository
-interface TaskRepository extends MongoRepository<Task, Long> {
-}
+interface TaskRepository extends MongoRepository<Task, Long> {}

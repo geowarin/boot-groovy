@@ -1,5 +1,7 @@
 package com.geowarin.task
 
+import groovy.transform.Canonical
+import groovy.transform.EqualsAndHashCode
 import org.springframework.data.mongodb.core.mapping.Document
 
 /**
@@ -9,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document
  * @author Geoffroy Warin (http://geowarin.github.io)
  */
 @Document
+@Canonical
 class Task {
     String name
     String author

@@ -30,10 +30,15 @@ dependencies {
 //    Shell does not work on heroku
 //    compile("org.springframework.boot:spring-boot-starter-remote-shell")
     compile 'com.fasterxml.jackson.core:jackson-databind'
+
     testCompile 'junit:junit:4.11'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+    testCompile 'org.spockframework:spock-spring:0.7-groovy-2.0'
+    testCompile 'org.kubek2k:springockito-annotations:1.0.9'
     testCompile 'org.apache.httpcomponents:fluent-hc:4.2.6'
+    testCompile 'com.lordofthejars:nosqlunit-mongodb:0.7.9'
+    testCompile 'com.github.fakemongo:fongo:1.5.0'
 }
 
 task wrapper(type: Wrapper) {

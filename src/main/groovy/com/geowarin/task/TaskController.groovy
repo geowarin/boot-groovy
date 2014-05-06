@@ -13,16 +13,16 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping('/task')
 class TaskController {
-    private TaskRepository repository
+    private TaskService service
 
     @Autowired
-    TaskController(TaskRepository repository) {
-        this.repository = repository
+    TaskController(TaskService service) {
+        this.service = service
     }
 
     @RequestMapping('/all')
     public List<Task> findAllTasks() {
-        repository.findAll()
+        service.findAll()
     }
 
 
