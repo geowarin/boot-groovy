@@ -14,8 +14,8 @@ class TaskService {
     @Autowired
     protected TaskRepository taskRepository
 
-    public Task createTask(name) {
-        taskRepository.save(new Task(name: name))
+    public Task createTask(Map taskAttr) {
+        taskRepository.save(new Task(taskAttr))
     }
 
     public List<Task> findAll() {
