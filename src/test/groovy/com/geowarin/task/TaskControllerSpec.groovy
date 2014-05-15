@@ -27,7 +27,7 @@ class TaskControllerSpec extends FongoSpec {
         res == [new Task(author: 'joe')]
     }
 
-    // Loads only task from the task package
+    // Loads only from the task package
     @Configuration
     @ComponentScan(basePackageClasses = Task)
     @EnableMongoRepositories(basePackageClasses = TaskRepository)

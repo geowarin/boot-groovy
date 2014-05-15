@@ -47,6 +47,7 @@ dependencies {
     testCompile 'org.apache.httpcomponents:fluent-hc:4.2.6'
     testCompile 'com.lordofthejars:nosqlunit-mongodb:0.7.9'
     testCompile 'com.github.fakemongo:fongo:1.4.5'
+    testCompile 'com.jayway.jsonpath:json-path:0.9.1'
 }
 
 task wrapper(type: Wrapper) {
