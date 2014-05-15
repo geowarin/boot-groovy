@@ -11,6 +11,7 @@ import spock.lang.Specification
  * Time: 21:46
  * @author Geoffroy Warin (http://geowarin.github.io)
  */
+@SuppressWarnings("GroovyAssignabilityCheck")
 @ContextConfiguration(classes = [App])
 class TaskServiceTest extends Specification {
 

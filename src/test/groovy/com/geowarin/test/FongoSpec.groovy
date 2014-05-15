@@ -7,10 +7,8 @@ import org.junit.Rule
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.ApplicationContext
 import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories
 import org.springframework.test.context.ContextConfiguration
 import spock.lang.Specification
 
@@ -28,8 +26,6 @@ abstract class FongoSpec extends Specification {
     public MongoDbRule mongoDbRule = MongoDbRule.MongoDbRuleBuilder.newMongoDbRule().defaultSpringMongoDb("demo-test");
 
     @Configuration
-    @EnableMongoRepositories
-    @ComponentScan
     static class MongoConfig extends AbstractMongoConfiguration {
 
         @Override

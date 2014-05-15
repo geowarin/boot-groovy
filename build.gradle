@@ -15,6 +15,14 @@ buildscript {
 apply plugin: 'groovy'
 apply plugin: 'spring-boot'
 
+sourceSets {
+    test {
+        groovy {
+            srcDirs = ['src/test/groovy', 'src/integTest/groovy']
+        }
+    }
+}
+
 repositories {
     mavenCentral()
 }
