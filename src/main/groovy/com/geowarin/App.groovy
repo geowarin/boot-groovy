@@ -13,7 +13,7 @@ class App {
     public static void main(String[] args) {
         new SpringApplicationBuilder()
                 .sources(App)
-                .profiles(isHeroku() ? 'heroku' : 'dev')
+                .profiles(heroku ? 'heroku' : 'dev')
                 .run(args)
     }
 

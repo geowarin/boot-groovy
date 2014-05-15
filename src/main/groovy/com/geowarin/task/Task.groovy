@@ -2,6 +2,7 @@ package com.geowarin.task
 
 import groovy.transform.Canonical
 import groovy.transform.EqualsAndHashCode
+import groovy.transform.ToString
 import org.springframework.data.mongodb.core.mapping.Document
 
 /**
@@ -12,6 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document
  */
 @Document
 @Canonical
+@ToString(includeNames = true)
 class Task {
     String name
     String author
