@@ -1,15 +1,11 @@
 package com.geowarin
 
+import com.geowarin.test.util.AbstractFongoIntegrationTest
 import org.apache.http.HttpResponse
 import org.apache.http.client.fluent.Request
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.springframework.beans.factory.annotation.Value
-import org.springframework.boot.test.IntegrationTest
-import org.springframework.boot.test.SpringApplicationConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
-import org.springframework.test.context.web.WebAppConfiguration
 import org.springframework.web.client.RestTemplate
 
 /**
@@ -19,21 +15,7 @@ import org.springframework.web.client.RestTemplate
  * @author Geoffroy Warin (http://geowarin.github.io)
  */
 @RunWith(SpringJUnit4ClassRunner)
-@IntegrationTest(['port=0', 'adminPassword=test'])
-@WebAppConfiguration
-@SpringApplicationConfiguration(classes = App)
-class AppIntegrationTests {
-
-    @Value('${local.server.port}')
-    private int port
-    @Value('${adminPassword}')
-    private String password
-    private String serverAddress
-
-    @Before
-    public void setUp() throws Exception {
-        this.serverAddress = "http://localhost:$port"
-    }
+class AppIntegrationTests extends AbstractFongoIntegrationTest {
 
     @Test
     def void should_access_home() {
@@ -63,12 +45,5 @@ class AppIntegrationTests {
 
         httpResponse = Request.Get("$serverAddress/documentation/resourceList").execute().returnResponse()
         assert httpResponse.statusLine.statusCode == 401
-    }
-
-    private static HttpResponse getWithBasicAuth(GString url, String userName, String password) {
-        def authorization = Base64.encoder.encodeToString("$userName:$password".bytes);
-        Request.Get(url)
-                .addHeader('Authorization', "Basic $authorization")
-                .execute().returnResponse()
     }
 }
